@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grow Up Baby — From Belly to Baby | Enfermagem de Saúde Materna e Parentalidade</title>
+<meta name="description" content="Grow Up Baby — Enf.ª Filipa Santos e Enf.ª Telma Maravilha acompanham famílias na gravidez e nos primeiros anos: consultas, cursos e workshops de parentalidade.">
+<meta property="og:title" content="Grow Up Baby — From Belly to Baby">
+<meta property="og:description" content="Consultas, cursos e workshops de parentalidade com a Enf.ª Filipa Santos e a Enf.ª Telma Maravilha.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/cta_founders.jpg">
+<meta property="og:locale" content="pt_PT">
+<link rel="icon" href="assets/logo_badge_white.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Libre+Franklin:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#faf7f1;
+    --cream-2:#f1ede3;
+    --sage-pale:#e2e6da;
+    --sage:#859479;
+    --sage-dark:#5f6e55;
+    --taupe:#6f645a;
+    --plum:#3f2733;
+    --terracotta:#a8663b;
+    --ink:#332c26;
+    --line: rgba(63,39,51,0.12);
+    --card:#ffffff;
+    --shadow: 0 18px 40px -22px rgba(63,39,51,0.35);
+    --maxw: 1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:"Libre Franklin", ui-sans-serif, system-ui, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:"Fraunces", Georgia, serif;
+    color:var(--plum);
+    line-height:1.12;
+    margin:0 0 0.5em 0;
+    text-wrap:balance;
+    font-weight:500;
+  }
+  p{margin:0 0 1em 0;}
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding-inline:24px;}
+  section{padding-block:88px;}
+  .eyebrow{
+    font-family:"Libre Franklin", sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:0.74rem;
+    font-weight:700;
+    color:var(--sage-dark);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:26px; height:2px;
+    background:var(--terracotta);
+    display:inline-block;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 28px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:0.95rem;
+    text-decoration:none;
+    border:1.5px solid transparent;
+    cursor:pointer;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+    font-family:"Libre Franklin", sans-serif;
+  }
+  .btn-primary{background:var(--terracotta); color:#fff;}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 26px -10px rgba(168,102,59,.55);}
+  .btn-outline{border-color:rgba(255,255,255,.55); color:#fff;}
+  .btn-outline:hover{background:rgba(255,255,255,.14); transform:translateY(-2px);}
+  .btn-dark{background:var(--plum); color:#fff;}
+  .btn-dark:hover{transform:translateY(-2px); box-shadow:0 14px 26px -10px rgba(63,39,51,.5);}
+
+  /* ---------- NAV ---------- */
+  header.site{
+    position:sticky; top:0; z-index:100;
+    background:rgba(250,247,241,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    max-width:var(--maxw); margin:0 auto; padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:24px;
+  }
+  .brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
+  .brand img{height:64px; width:auto;}
+  .links{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+  .links a{
+    text-decoration:none; color:var(--taupe); font-weight:600; font-size:.92rem;
+    padding-block:6px; border-bottom:2px solid transparent; transition:border-color .2s, color .2s;
+  }
+  .links a:hover{color:var(--terracotta); border-color:var(--terracotta);}
+  .nav-cta{display:flex; align-items:center; gap:14px;}
+  .burger{display:none; background:none; border:none; cursor:pointer; padding:6px;}
+  .burger span{display:block; width:24px; height:2px; background:var(--plum); margin:5px 0; transition:.25s;}
+
+  /* ---------- HERO ---------- */
+  .hero{padding-block:0;}
+  .hero-grid{
+    display:grid; grid-template-columns:1.05fr 1fr; align-items:center; gap:0;
+    min-height:640px;
+  }
+  .hero-copy{padding:70px 48px 70px 24px; max-width:640px; margin-inline:auto;}
+  .hero-copy h1{font-size:clamp(2.3rem, 4.2vw, 3.6rem); margin-bottom:.35em;}
+  .hero-copy h1 em{font-style:italic; color:var(--terracotta);}
+  .hero-lede{font-size:1.12rem; color:var(--taupe); max-width:48ch;}
+  .hero-actions{display:flex; gap:14px; margin-top:28px; flex-wrap:wrap;}
+  .hero-stats{display:flex; gap:34px; margin-top:46px; flex-wrap:wrap;}
+  .hero-stats div{min-width:110px;}
+  .hero-stats .num{font-family:"Fraunces"; font-size:1.9rem; color:var(--plum); font-weight:600;}
+  .hero-stats .lbl{font-size:.78rem; color:var(--sage-dark); text-transform:uppercase; letter-spacing:.08em; font-weight:700;}
+  .hero-photo{position:relative; height:100%; min-height:640px; overflow:hidden;}
+  .hero-photo img{width:100%; height:100%; object-fit:cover; object-position:65% 30%;}
+  .hero-badge{
+    position:absolute; left:-1px; bottom:26px;
+    background:var(--sage); color:#fff; padding:16px 22px; border-radius:0 14px 14px 0;
+    font-family:"Fraunces"; font-size:1rem; max-width:270px; box-shadow:var(--shadow);
+  }
+  .hero-badge b{display:block; font-size:1.5rem;}
+
+  /* ---------- SECTION HEADINGS shared ---------- */
+  .section-head{max-width:760px; margin-bottom:48px;}
+  .section-head h2{font-size:clamp(1.8rem, 3vw, 2.5rem);}
+  .section-head p{color:var(--taupe); font-size:1.05rem; max-width:60ch;}
+  .alt{background:var(--cream-2);}
+  .sage-section{background:var(--sage); color:#fff;}
+  .sage-section h2, .sage-section h3{color:#fff;}
+  .sage-section .eyebrow{color:#eef1e8;}
+  .sage-section .eyebrow::before{background:#fff;}
+
+  /* ---------- QUEM SOMOS ---------- */
+  .quem-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  .quem-photos{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .quem-photos img{border-radius:18px; box-shadow:var(--shadow); aspect-ratio:4/5; object-fit:cover;}
+  .quem-photos .p2{margin-top:36px;}
+  .quem-copy p{color:var(--ink); font-size:1.05rem;}
+  .quem-copy strong{color:var(--plum);}
+  .signature-row{display:flex; align-items:center; gap:18px; margin-top:30px;}
+  .signature-row img{height:52px; width:auto;}
+
+  /* founders */
+  .founders{display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:64px;}
+  .founder-card{
+    background:var(--card); border-radius:20px; overflow:hidden; box-shadow:var(--shadow);
+    display:grid; grid-template-columns:180px 1fr;
+  }
+  .founder-card img{width:100%; height:100%; object-fit:cover; aspect-ratio:3/4;}
+  .founder-bio{padding:26px 24px;}
+  .founder-bio h3{font-size:1.35rem; margin-bottom:2px;}
+  .founder-role{font-size:.82rem; text-transform:uppercase; letter-spacing:.08em; font-weight:700; margin-bottom:12px;}
+  .founder-card.telma .founder-role{color:var(--terracotta);}
+  .founder-card.filipa .founder-role{color:var(--sage-dark);}
+  .founder-bio p{font-size:.94rem; color:var(--taupe); margin-bottom:10px;}
+  .founder-tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:12px;}
+  .founder-tags span{
+    background:var(--sage-pale); color:var(--sage-dark); font-size:.72rem; font-weight:700;
+    padding:5px 10px; border-radius:999px; letter-spacing:.02em;
+  }
+
+  /* ---------- MISSAO ---------- */
+  .missao{
+    display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;
+  }
+  .missao-statement{
+    font-family:"Fraunces"; font-style:italic; font-size:clamp(1.5rem,2.4vw,2.05rem);
+    color:var(--plum); line-height:1.35; max-width:22ch;
+  }
+  .missao-body p{font-size:1.05rem; color:var(--ink);}
+  .pillars{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:40px;}
+  .pillar{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:24px 20px;}
+  .pillar .num{font-family:"Fraunces"; font-size:1.7rem; color:var(--terracotta); margin-bottom:8px; display:block;}
+  .pillar h4{font-size:1rem; margin-bottom:6px;}
+  .pillar p{font-size:.88rem; color:var(--taupe); margin:0;}
+  .ig-strip{
+    margin-top:44px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+    background:#fff; border:1px solid var(--line); border-radius:16px; padding:18px 22px;
+  }
+  .ig-strip .ig-icon{
+    width:46px; height:46px; border-radius:14px;
+    background:linear-gradient(135deg,#a8663b,#3f2733);
+    display:flex; align-items:center; justify-content:center; color:#fff; flex-shrink:0;
+  }
+  .ig-strip strong{color:var(--plum); font-size:1.02rem;}
+  .ig-strip span{color:var(--taupe); font-size:.88rem;}
+  .ig-strip .ig-stats{display:flex; gap:22px; margin-left:auto;}
+  .ig-strip .ig-stats div{text-align:center;}
+  .ig-strip .ig-stats b{display:block; font-family:"Fraunces"; color:var(--plum); font-size:1.15rem;}
+  .ig-strip .ig-stats small{color:var(--sage-dark); text-transform:uppercase; letter-spacing:.06em; font-size:.65rem; font-weight:700;}
+
+  /* ---------- PERCURSO / timeline ---------- */
+  .percurso-gallery{
+    display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-top:20px;
+  }
+  .percurso-gallery figure{margin:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); position:relative;}
+  .percurso-gallery img{aspect-ratio:3/4; object-fit:cover; width:100%;}
+  .percurso-gallery figcaption{
+    position:absolute; left:0; right:0; bottom:0; padding:10px 12px 8px;
+    background:linear-gradient(0deg, rgba(63,39,51,.82), transparent);
+    color:#fff; font-size:.72rem; font-weight:600; letter-spacing:.02em;
+  }
+  .partner-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:28px;}
+  .partner-row span{
+    border:1px solid var(--line); background:#fff; padding:8px 16px; border-radius:999px;
+    font-size:.82rem; font-weight:600; color:var(--taupe);
+  }
+
+  /* ---------- SERVICOS ---------- */
+  .services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:10px;}
+  .service-card{
+    background:var(--card); border-radius:20px; overflow:hidden; box-shadow:var(--shadow);
+    display:flex; flex-direction:column;
+  }
+  .service-media{position:relative; aspect-ratio:4/3; overflow:hidden;}
+  .service-media img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease;}
+  .service-card:hover .service-media img{transform:scale(1.06);}
+  .service-tag{
+    position:absolute; top:14px; left:14px; background:rgba(63,39,51,.85); color:#fff;
+    font-size:.68rem; text-transform:uppercase; letter-spacing:.08em; font-weight:700;
+    padding:6px 12px; border-radius:999px;
+  }
+  .service-body{padding:24px 22px 26px; display:flex; flex-direction:column; gap:10px; flex:1;}
+  .service-body h3{font-size:1.28rem; margin-bottom:0;}
+  .service-body p{color:var(--taupe); font-size:.92rem; margin-bottom:0; flex:1;}
+  .service-topics{list-style:none; margin:6px 0 0; padding:0; display:flex; flex-direction:column; gap:6px;}
+  .service-topics li{font-size:.85rem; color:var(--ink); display:flex; gap:8px; align-items:flex-start;}
+  .service-topics li::before{content:"✓"; color:var(--sage-dark); font-weight:700; margin-top:1px;}
+  .service-cta{
+    margin-top:14px; align-self:flex-start; font-size:.85rem; font-weight:700; color:var(--terracotta);
+    text-decoration:none; border-bottom:2px solid var(--terracotta); padding-bottom:2px;
+  }
+
+  /* Agenda / booking box */
+  .agenda{
+    margin-top:64px; display:grid; grid-template-columns:1fr 1fr; gap:0;
+    background:var(--plum); border-radius:24px; overflow:hidden; color:#fff; box-shadow:var(--shadow);
+  }
+  .agenda-copy{padding:48px; }
+  .agenda-copy .eyebrow{color:#e7d9c9;}
+  .agenda-copy .eyebrow::before{background:var(--terracotta);}
+  .agenda-copy h3{color:#fff; font-size:1.7rem;}
+  .agenda-copy p{color:#e4dcd6; font-size:.98rem;}
+  .agenda-form{background:#fff; padding:48px; color:var(--ink);}
+  .agenda-form h4{font-family:"Fraunces"; color:var(--plum); margin-bottom:18px; font-size:1.15rem;}
+  .field{margin-bottom:16px;}
+  .field label{display:block; font-size:.78rem; font-weight:700; color:var(--sage-dark); text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px;}
+  .field input, .field select, .field textarea{
+    width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--line);
+    font-family:"Libre Franklin"; font-size:.95rem; background:var(--cream); color:var(--ink);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{outline:2px solid var(--sage); outline-offset:1px;}
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .agenda-form .btn-dark{width:100%; justify-content:center; margin-top:6px;}
+  .form-note{font-size:.78rem; color:var(--taupe); margin-top:12px; text-align:center;}
+
+  /* ---------- FEEDBACKS ---------- */
+  .feedback-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:10px;}
+  .feedback-card{
+    background:var(--card); border-radius:18px; padding:26px 24px; box-shadow:var(--shadow);
+    display:flex; flex-direction:column; gap:14px; border-top:4px solid var(--sage);
+  }
+  .stars{color:var(--terracotta); letter-spacing:2px; font-size:.95rem;}
+  .feedback-card p{font-size:.96rem; color:var(--ink); margin:0; flex:1;}
+  .feedback-who{display:flex; align-items:center; gap:10px; margin-top:4px;}
+  .feedback-avatar{
+    width:36px; height:36px; border-radius:50%; background:var(--sage-pale); color:var(--sage-dark);
+    display:flex; align-items:center; justify-content:center; font-family:"Fraunces"; font-weight:600;
+  }
+  .feedback-who b{display:block; font-size:.86rem; color:var(--plum);}
+  .feedback-who span{font-size:.76rem; color:var(--taupe);}
+
+  /* ---------- CTA / CONTACT ---------- */
+  .cta-section{
+    position:relative; overflow:hidden; color:#fff;
+  }
+  .cta-section::before{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(120deg, rgba(63,39,51,.92), rgba(95,110,85,.85));
+    z-index:1;
+  }
+  .cta-bg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top center;}
+  .cta-inner{position:relative; z-index:2; display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center;}
+  .cta-inner h2{color:#fff; font-size:clamp(1.9rem,3.4vw,2.7rem);}
+  .cta-inner p{color:#f1ece6; font-size:1.05rem; max-width:52ch;}
+  .cta-actions{display:flex; gap:14px; margin-top:26px; flex-wrap:wrap;}
+  .contact-card{
+    background:rgba(255,255,255,.96); color:var(--ink); border-radius:22px; padding:38px 34px;
+    box-shadow:var(--shadow);
+  }
+  .contact-card h3{font-size:1.3rem;}
+  .contact-card .field{margin-bottom:14px;}
+  .contact-card .btn-primary{width:100%; justify-content:center;}
+  .contact-links{display:flex; flex-direction:column; gap:14px; margin-top:22px; padding-top:22px; border-top:1px solid var(--line);}
+  .contact-links a{
+    display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--plum); font-weight:600; font-size:.94rem;
+  }
+  .contact-links .icon{
+    width:38px; height:38px; border-radius:10px; background:var(--sage-pale); color:var(--sage-dark);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer.site{background:var(--plum); color:#e9e2dc; padding-block:56px 28px;}
+  .footer-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:40px;}
+  .footer-brand{display:flex; align-items:center; gap:12px; margin-bottom:14px;}
+  .footer-brand img{height:44px; width:auto;}
+  footer.site h5{color:#fff; font-size:.85rem; text-transform:uppercase; letter-spacing:.08em; margin-bottom:16px;}
+  footer.site p{color:#cfc4bd; font-size:.88rem; max-width:34ch;}
+  .footer-links{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px;}
+  .footer-links a{color:#e9e2dc; text-decoration:none; font-size:.9rem;}
+  .footer-links a:hover{color:var(--terracotta);}
+  .footer-bottom{
+    margin-top:44px; padding-top:22px; border-top:1px solid rgba(255,255,255,.14);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:.8rem; color:#bdb0a8;
+  }
+
+  /* utility */
+  .reveal{opacity:1;}
+  .center{text-align:center; margin-inline:auto;}
+
+  @media (max-width: 980px){
+    .links{display:none;}
+    .burger{display:block;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-photo{min-height:380px; order:-1;}
+    .hero-copy{padding:44px 24px;}
+    .quem-grid, .missao, .agenda, .cta-inner{grid-template-columns:1fr;}
+    .founders{grid-template-columns:1fr;}
+    .founder-card{grid-template-columns:1fr;}
+    .founder-card img{aspect-ratio:1/1; height:auto; object-position:center 18%;}
+    .pillars{grid-template-columns:1fr 1fr;}
+    .services-grid{grid-template-columns:1fr;}
+    .percurso-gallery{grid-template-columns:repeat(2,1fr);}
+    .feedback-grid{grid-template-columns:1fr;}
+    .field-row{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr; gap:28px;}
+    .agenda-copy, .agenda-form{padding:34px 26px;}
+  }
+  @media (max-width:600px){
+    section{padding-block:60px;}
+    .percurso-gallery{grid-template-columns:repeat(2,1fr);}
+    .percurso-gallery figure:nth-child(5){display:none;}
+    .quem-photos{grid-template-columns:1fr;}
+    .quem-photos img{aspect-ratio:16/10;}
+    .quem-photos .p2{margin-top:0;}
+  }
+
+  /* mobile nav panel */
+  .mobile-panel{
+    position:fixed; inset:0 0 0 auto; width:min(320px,84vw); background:var(--cream);
+    box-shadow:-18px 0 40px rgba(0,0,0,.18); transform:translateX(100%); transition:transform .3s ease;
+    z-index:200; padding:26px 24px; display:flex; flex-direction:column; gap:22px;
+  }
+  .mobile-panel.open{transform:translateX(0);}
+  .mobile-panel a{text-decoration:none; color:var(--plum); font-family:"Fraunces"; font-size:1.2rem;}
+  .mobile-overlay{position:fixed; inset:0; background:rgba(63,39,51,.35); z-index:199; opacity:0; pointer-events:none; transition:opacity .3s;}
+  .mobile-overlay.open{opacity:1; pointer-events:auto;}
+  .mobile-close{align-self:flex-end; background:none; border:none; font-size:1.6rem; color:var(--plum); cursor:pointer;}
+</style>
+</head>
+<body>
+
+
+<header class="site">
+  <div class="nav">
+    <a class="brand" href="#top">
+      <img src="assets/logo_script.jpg" alt="Grow Up Baby — From belly to baby" style="border-radius:8px;">
+    </a>
+    <ul class="links">
+      <li><a href="#quem-somos">Quem somos</a></li>
+      <li><a href="#missao">Missão</a></li>
+      <li><a href="#percurso">Percurso</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#feedbacks">Feedbacks</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#agendar" class="btn btn-primary" style="padding:11px 22px; font-size:.86rem;">Marcar consulta</a>
+      <button class="burger" id="burgerBtn" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<nav class="mobile-panel" id="mobilePanel">
+  <button class="mobile-close" id="mobileClose" aria-label="Fechar menu">&times;</button>
+  <a href="#quem-somos">Quem somos</a>
+  <a href="#missao">Missão</a>
+  <a href="#percurso">Percurso</a>
+  <a href="#servicos">Serviços</a>
+  <a href="#feedbacks">Feedbacks</a>
+  <a href="#contacto">Contacto</a>
+</nav>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Enf.ª Filipa Santos &amp; Enf.ª Telma Maravilha</div>
+        <h1>Da barriga ao bebé, <em>ninguém cuida sozinho.</em></h1>
+        <p class="hero-lede">Somos duas enfermeiras especialistas em Saúde Infantil e Pediátrica, apaixonadas por acompanhar famílias na jornada da parentalidade — com informação séria, cuidado próximo e muita paciência para as vossas dúvidas.</p>
+        <div class="hero-actions">
+          <a href="#agendar" class="btn btn-primary">Marcar consulta</a>
+          <a href="#servicos" class="btn" style="border:1.5px solid var(--plum); color:var(--plum);">Ver serviços</a>
+        </div>
+        <div class="hero-stats">
+          <div><div class="num">15</div><div class="lbl">Anos de amizade &amp; cuidados</div></div>
+          <div><div class="num">21 mil</div><div class="lbl">Famílias no Instagram</div></div>
+          <div><div class="num">2020</div><div class="lbl">Ano de fundação</div></div>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="assets/hero_kitchen.jpg" alt="Filipa e Telma, enfermeiras da Grow Up Baby">
+        <div class="hero-badge">Especialistas em Saúde Infantil e Pediátrica<b>desde 2012</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUEM SOMOS -->
+  <section id="quem-somos">
+    <div class="wrap">
+      <div class="quem-grid">
+        <div class="quem-photos">
+          <img src="assets/quemsomos_event.jpg" alt="Ação de formação Grow Up Baby">
+          <img class="p2" src="assets/quemsomos_team_dolls.jpg" alt="Filipa e Telma em formação de cuidados ao bebé">
+        </div>
+        <div class="quem-copy">
+          <div class="eyebrow">Quem somos nós?</div>
+          <h2>Duas colegas, amigas e companheiras de sempre.</h2>
+          <p><strong>Conheceram-se há 15 anos</strong> numa unidade de cuidados intensivos e especiais neonatais — e nunca mais se largaram. Juntas cresceram, estudaram e aprenderam a cuidar, até perceberem que o contexto hospitalar não era o limite: seria essencial ajudar cada vez mais famílias na maravilhosa, mas também desafiante jornada que é a parentalidade.</p>
+          <p>Assim nasceu a <strong>Grow Up Baby</strong> — o cuidado que aprenderam junto aos berços mais frágeis, agora ao serviço de todas as famílias.</p>
+          <div class="signature-row">
+            <img src="assets/logo_script.jpg" alt="Logótipo Grow Up Baby" style="border-radius:10px;">
+          </div>
+        </div>
+      </div>
+
+      <div class="founders">
+        <div class="founder-card telma">
+          <img src="assets/telma_portrait.jpg" alt="Enf.ª Telma Maravilha">
+          <div class="founder-bio">
+            <h3>Telma Maravilha</h3>
+            <div class="founder-role">Enfermeira Especialista em Saúde Infantil</div>
+            <p>Nascida e criada em Setúbal, licenciou-se em Enfermagem em 2011 e, desde Janeiro de 2012, exerce numa Unidade de Cuidados Intensivos Neonatais e Pediátricos — cuidar de grandes prematuros e das suas famílias é uma das suas grandes paixões.</p>
+            <p>Em 2018 tornou-se Enfermeira Especialista em Saúde Infantil e Pediátrica pela Universidade Católica de Lisboa. Mãe de dois rapazes.</p>
+            <div class="founder-tags">
+              <span>Sono infantil</span><span>Aleitamento materno</span><span>Freios linguais</span><span>SBV/SAV Pediátrico</span><span>Massagem infantil</span>
+            </div>
+          </div>
+        </div>
+        <div class="founder-card filipa">
+          <img src="assets/filipa_portrait.jpg" alt="Enf.ª Filipa Santos">
+          <div class="founder-bio">
+            <h3>Filipa Santos</h3>
+            <div class="founder-role">Enfermeira Especialista em Saúde Infantil</div>
+            <p>Apaixonada por bebés e crianças desde sempre, licenciou-se em Enfermagem em 2010 e exerce, desde então, numa Unidade de Cuidados Intensivos Neonatais e Pediátricos — o seu foco: o empowerment parental.</p>
+            <p>Em 2018 tornou-se Enfermeira Especialista em Saúde Infantil e Pediátrica pela Universidade Católica de Lisboa, com foco na literacia em saúde e no desenvolvimento infantil.</p>
+            <div class="founder-tags">
+              <span>Sono infantil</span><span>Aleitamento materno</span><span>Freios linguais</span><span>SBV Pediátrico</span><span>Massagem infantil</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSAO -->
+  <section id="missao" class="alt">
+    <div class="wrap">
+      <div class="missao">
+        <div>
+          <div class="eyebrow">Qual a missão da Grow Up Baby?</div>
+          <p class="missao-statement">"Promoção da capacitação parental e do desenvolvimento infantil como primeiro foco de atuação."</p>
+        </div>
+        <div class="missao-body">
+          <p>A Grow Up Baby nasce em <strong>2020, em plena pandemia</strong>, através de uma página de Instagram — <strong>@growupbaby_</strong> — que se mantém até à atualidade. Nela encontram-se conteúdos válidos cientificamente, atuais, que pretendem promover a literacia em saúde, bem como o direito à igualdade e acessibilidade à informação.</p>
+          <div class="pillars">
+            <div class="pillar"><span class="num">01</span><h4>Capacitação parental</h4><p>Dar às famílias ferramentas práticas para cuidarem com confiança.</p></div>
+            <div class="pillar"><span class="num">02</span><h4>Desenvolvimento infantil</h4><p>Acompanhar cada etapa de crescimento com uma base científica sólida.</p></div>
+            <div class="pillar"><span class="num">03</span><h4>Acesso à informação</h4><p>Conteúdo gratuito e rigoroso, ao alcance de todas as famílias.</p></div>
+          </div>
+          <div class="ig-strip">
+            <div class="ig-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+            </div>
+            <div>
+              <strong>@growupbaby_</strong><br>
+              <span>Especialistas em Saúde Infantil no Instagram</span>
+            </div>
+            <div class="ig-stats">
+              <div><b>21 mil</b><small>Seguidores</small></div>
+              <div><b>600+</b><small>Publicações</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERCURSO -->
+  <section id="percurso">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Como tem sido o percurso?</div>
+        <h2>Parcerias e redes de apoio que nos fizeram chegar a cada vez mais pais.</h2>
+        <p>Além da página de Instagram, ao longo dos anos temos estabelecido colaborações que ampliam o nosso alcance: workshops e newsletter com o Continente, workshops com a Philips Avent, participação na "A Nossa Tarde" da RTP, no podcast "A Vida Passa a Comer" da TSF, e diversos congressos e seminários em saúde.</p>
+      </div>
+      <div class="percurso-gallery">
+        <figure><img src="assets/percurso_podium.jpg" alt="Workshop com a Philips Avent"><figcaption>Workshops · Philips Avent</figcaption></figure>
+        <figure><img src="assets/percurso_audience.jpg" alt="Seminário em saúde infantil"><figcaption>Congressos &amp; seminários</figcaption></figure>
+        <figure><img src="assets/percurso_workshop_screen.jpg" alt="Workshop e newsletter com o Continente"><figcaption>Newsletter · Continente</figcaption></figure>
+        <figure><img src="assets/percurso_avpc.jpg" alt="Podcast A Vida Passa a Comer, TSF"><figcaption>Podcast TSF</figcaption></figure>
+        <figure><img src="assets/percurso_rtp.jpg" alt="Participação no programa A Nossa Tarde, RTP"><figcaption>"A Nossa Tarde" · RTP</figcaption></figure>
+      </div>
+      <div class="partner-row">
+        <span>Continente</span><span>Philips Avent</span><span>RTP — A Nossa Tarde</span><span>TSF — A Vida Passa a Comer</span><span>Congressos de Saúde</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICOS -->
+  <section id="servicos" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Quais os serviços Grow Up Baby?</div>
+        <h2>Ao longo do tempo, todos os serviços foram criados para um só objetivo:</h2>
+        <p><strong>capacitar os cuidadores a prestarem cuidados de forma segura e tranquila.</strong> Presencial, ao domicílio, ou online — escolham o formato que faz sentido para a vossa família.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-media">
+            <img src="assets/curso_detail1.jpg" alt="Curso Cuidados ao Bebé">
+            <span class="service-tag">Presencial ou online</span>
+          </div>
+          <div class="service-body">
+            <h3>Curso Cuidados ao Bebé</h3>
+            <p>Criado para antecipar as dúvidas mais comuns da maternidade, aliando teoria à prática.</p>
+            <ul class="service-topics">
+              <li>Temas personalizados às dúvidas dos cuidadores</li>
+              <li>Treino prático: banho, muda de fralda, sono</li>
+              <li>Manobra de desengasgamento</li>
+            </ul>
+            <a class="service-cta" href="#agendar">Agendar este curso →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-media">
+            <img src="assets/consulta_detail1.jpg" alt="Consulta de Enfermagem ao domicílio">
+            <span class="service-tag">Domicílio ou online</span>
+          </div>
+          <div class="service-body">
+            <h3>Consulta de Enfermagem</h3>
+            <p>Apoio aos pais ao longo do crescimento do seu filho, com seguimento à distância.</p>
+            <ul class="service-topics">
+              <li>Teste do pezinho e avaliação do bebé (peso)</li>
+              <li>Apoio à amamentação</li>
+              <li>Esclarecimento de todas as dúvidas dos pais</li>
+            </ul>
+            <a class="service-cta" href="#agendar">Agendar esta consulta →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-media">
+            <img src="assets/walim_detail1.jpg" alt="Workshop de Introdução Alimentar">
+            <span class="service-tag">Presencial ou online</span>
+          </div>
+          <div class="service-body">
+            <h3>Workshop Introdução Alimentar</h3>
+            <p>Porque os desafios não surgem só nos primeiros meses. Preparamos os cuidadores para esta nova etapa.</p>
+            <ul class="service-topics">
+              <li>Alimentos proibidos no primeiro ano</li>
+              <li>Sinais de prontidão alimentar e alergénios</li>
+              <li>Diferentes métodos de introdução alimentar</li>
+            </ul>
+            <a class="service-cta" href="#agendar">Agendar este workshop →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="agenda" id="agendar">
+        <div class="agenda-copy">
+          <div class="eyebrow">Vamos agendar?</div>
+          <h3>Marquem a vossa consulta, curso ou workshop</h3>
+          <p>Preencham o formulário com o serviço que procuram e a melhor forma de vos contactar — respondemos por email para combinar data, formato (presencial, domicílio ou online) e todos os detalhes.</p>
+          <p style="margin-top:22px; font-size:.88rem; color:#cfc4bd;">Também podem escrever diretamente para <strong style="color:#fff;">geral@growupbaby.pt</strong> ou enviar mensagem no Instagram <strong style="color:#fff;">@growupbaby_</strong>.</p>
+        </div>
+        <div class="agenda-form">
+          <h4>Pedido de marcação</h4>
+          <form id="bookingForm" action="mailto:geral@growupbaby.pt" method="post" enctype="text/plain">
+            <div class="field-row">
+              <div class="field">
+                <label for="bk-nome">Nome</label>
+                <input id="bk-nome" name="Nome" type="text" placeholder="O vosso nome" required>
+              </div>
+              <div class="field">
+                <label for="bk-tel">Telefone</label>
+                <input id="bk-tel" name="Telefone" type="tel" placeholder="9xx xxx xxx">
+              </div>
+            </div>
+            <div class="field">
+              <label for="bk-email">Email</label>
+              <input id="bk-email" name="Email" type="email" placeholder="oteu@email.com" required>
+            </div>
+            <div class="field">
+              <label for="bk-servico">Serviço pretendido</label>
+              <select id="bk-servico" name="Servico">
+                <option>Curso Cuidados ao Bebé</option>
+                <option>Consulta de Enfermagem</option>
+                <option>Workshop Introdução Alimentar</option>
+                <option>Ainda não sei — quero esclarecer dúvidas</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="bk-msg">Mensagem</label>
+              <textarea id="bk-msg" name="Mensagem" rows="3" placeholder="Contem-nos um pouco sobre o que precisam..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-dark">Enviar pedido de marcação</button>
+            <p class="form-note">Ao enviar, abre-se o vosso programa de email com o pedido já preenchido.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEEDBACKS -->
+  <section id="feedbacks">
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="eyebrow" style="justify-content:center;">Alguns dos feedbacks das famílias</div>
+        <h2>O que dizem as famílias Grow Up Baby</h2>
+      </div>
+      <div class="feedback-grid">
+        <div class="feedback-card">
+          <div class="stars">★★★★★</div>
+          <p>"A amamentação foi difícil, mas eu estava muito preparada e ciente de como deveria agir por causa do workshop de amamentação. O que me salvou foi usar todos os recursos que eu conhecia antes de mochucar — não tive fissura nenhuma."</p>
+          <div class="feedback-who">
+            <div class="feedback-avatar">G</div>
+            <div><b>Gio Lima Oliveira</b><span>Workshop de Amamentação</span></div>
+          </div>
+        </div>
+        <div class="feedback-card">
+          <div class="stars">★★★★★</div>
+          <p>"A Telma foi uma querida e explicou tudo de uma forma mega fácil de entender! A ideia deste curso personalizado ao domicílio é mesmo ser prático — treinamos com os materiais dos pais para tornar mais realista."</p>
+          <div class="feedback-who">
+            <div class="feedback-avatar">T</div>
+            <div><b>Tiago Carreira</b><span>Curso Cuidados ao Bebé</span></div>
+          </div>
+        </div>
+        <div class="feedback-card">
+          <div class="stars">★★★★★</div>
+          <p>"Ontem a enfermeira Telma teve cá em casa e tornou tudo mais leve! Vocês não imaginam a diferença que este serviço faz numa mãe em pós-parto — se eu soubesse o que sei hoje, tinha procurado este apoio ao domicílio muito antes."</p>
+          <div class="feedback-who">
+            <div class="feedback-avatar">F</div>
+            <div><b>Frederica Ferreira</b><span>Consulta de Enfermagem</span></div>
+          </div>
+        </div>
+        <div class="feedback-card">
+          <div class="stars">★★★★★</div>
+          <p>"Foi muito bom estar com este casal super querido! Conhecemos a Filipa através da comunidade — a dedicação e o cuidado com que nos receberam tornaram tudo mais fácil e tranquilo."</p>
+          <div class="feedback-who">
+            <div class="feedback-avatar">B</div>
+            <div><b>Borrachinha Capoeira Muzenza</b><span>Curso Cuidados ao Bebé</span></div>
+          </div>
+        </div>
+        <div class="feedback-card">
+          <div class="stars">★★★★★</div>
+          <p>"Dia de consulta em casa com a querida Enf.ª Telma para check-up deste bebé e para esclarecer questões como amamentação, como usar corretamente o marsúpio, entre outras dúvidas em pelo caminho."</p>
+          <div class="feedback-who">
+            <div class="feedback-avatar">I</div>
+            <div><b>Inês Rocha</b><span>Consulta de Enfermagem</span></div>
+          </div>
+        </div>
+        <div class="feedback-card">
+          <div class="stars">★★★★★</div>
+          <p>"Adorámos a Telma e vocês também vão adorar! Este serviço é um presente incrível para dar a futuros pais, inclui curso de cuidados ao bebé no pré-parto e apoio ao domicílio no pós-parto."</p>
+          <div class="feedback-who">
+            <div class="feedback-avatar">A</div>
+            <div><b>Ana Pi</b><span>Curso Cuidados ao Bebé</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / CONTACTO -->
+  <section id="contacto" class="cta-section">
+    <img class="cta-bg" src="assets/cta_founders.jpg" alt="Filipa e Telma, Grow Up Baby">
+    <div class="wrap cta-inner">
+      <div>
+        <div class="eyebrow" style="color:#e7d9c9;">Vamos fazer esta caminhada juntos?</div>
+        <h2>Estamos aqui para vos apoiar.</h2>
+        <p>Da gravidez aos primeiros anos do vosso bebé, a Grow Up Baby caminha ao vosso lado — com ciência, empatia e experiência de quem já cuidou de milhares de famílias.</p>
+        <div class="cta-actions">
+          <a href="#agendar" class="btn btn-primary">Marcar consulta</a>
+          <a href="https://www.instagram.com/growupbaby_" target="_blank" rel="noopener" class="btn btn-outline">Seguir no Instagram</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <h3>Fale connosco</h3>
+        <form id="contactForm" action="mailto:geral@growupbaby.pt" method="post" enctype="text/plain">
+          <div class="field">
+            <label for="c-nome">Nome</label>
+            <input id="c-nome" name="Nome" type="text" placeholder="O vosso nome" required>
+          </div>
+          <div class="field">
+            <label for="c-email">Email</label>
+            <input id="c-email" name="Email" type="email" placeholder="oteu@email.com" required>
+          </div>
+          <div class="field">
+            <label for="c-msg">Mensagem</label>
+            <textarea id="c-msg" name="Mensagem" rows="3" placeholder="Como podemos ajudar?" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+        </form>
+        <div class="contact-links">
+          <a href="https://www.instagram.com/growupbaby_" target="_blank" rel="noopener">
+            <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></span>
+            @growupbaby_
+          </a>
+          <a href="mailto:geral@growupbaby.pt">
+            <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg></span>
+            geral@growupbaby.pt
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/logo_script_white.jpg" alt="Grow Up Baby" style="border-radius:8px;">
+        </div>
+        <p>From belly to baby. Enfermeiras especialistas em Saúde Infantil e Pediátrica, dedicadas a capacitar famílias em cada etapa da parentalidade.</p>
+      </div>
+      <div>
+        <h5>Navegação</h5>
+        <ul class="footer-links">
+          <li><a href="#quem-somos">Quem somos</a></li>
+          <li><a href="#missao">Missão</a></li>
+          <li><a href="#percurso">Percurso</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#feedbacks">Feedbacks</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contacto</h5>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/growupbaby_" target="_blank" rel="noopener">Instagram @growupbaby_</a></li>
+          <li><a href="mailto:geral@growupbaby.pt">geral@growupbaby.pt</a></li>
+          <li><a href="#agendar">Marcar consulta</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Grow Up Baby. Todos os direitos reservados.</span>
+      <span>Enf.ª Filipa Santos &amp; Enf.ª Telma Maravilha</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  var burger = document.getElementById('burgerBtn');
+  var panel = document.getElementById('mobilePanel');
+  var overlay = document.getElementById('mobileOverlay');
+  var closeBtn = document.getElementById('mobileClose');
+  function openPanel(){ panel.classList.add('open'); overlay.classList.add('open'); }
+  function closePanel(){ panel.classList.remove('open'); overlay.classList.remove('open'); }
+  burger.addEventListener('click', openPanel);
+  closeBtn.addEventListener('click', closePanel);
+  overlay.addEventListener('click', closePanel);
+  panel.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closePanel); });
+</script>
+
+</body>
+</html>
