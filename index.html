@@ -302,11 +302,29 @@
   .gallery-grid{
     display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:170px; gap:14px; margin-top:10px;
   }
-  .gallery-grid a{border-radius:16px; overflow:hidden; display:block; position:relative;}
+  .gallery-grid .gallery-item{border-radius:16px; overflow:hidden; display:block; position:relative; border:none; padding:0; margin:0; background:none; cursor:pointer; font:inherit;}
   .gallery-grid img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease;}
-  .gallery-grid a:hover img{transform:scale(1.07);}
+  .gallery-grid .gallery-item:hover img{transform:scale(1.07);}
   .gallery-grid .tall{grid-row:span 2;}
   .gallery-note{margin-top:18px; font-size:.85rem; color:var(--taupe); text-align:center;}
+
+  /* ---------- GALERIA LIGHTBOX ---------- */
+  .lightbox{position:fixed; inset:0; background:rgba(51,44,38,.92); z-index:200; display:none; align-items:center; justify-content:center; padding:24px;}
+  .lightbox.open{display:flex;}
+  .lightbox-figure{max-width:min(92vw,900px); max-height:88vh; display:flex; flex-direction:column; align-items:center; gap:12px;}
+  .lightbox-figure img{max-width:100%; max-height:78vh; width:auto; height:auto; border-radius:12px; box-shadow:0 20px 50px rgba(0,0,0,.4);}
+  .lightbox-caption{color:#f1ede3; font-size:.85rem; text-align:center;}
+  .lightbox-close{position:absolute; top:20px; right:24px; width:44px; height:44px; border-radius:50%; border:none; background:rgba(255,255,255,.12); color:#fff; font-size:1.4rem; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center;}
+  .lightbox-close:hover{background:rgba(255,255,255,.22);}
+  .lightbox-nav{position:absolute; top:50%; transform:translateY(-50%); width:48px; height:48px; border-radius:50%; border:none; background:rgba(255,255,255,.12); color:#fff; font-size:1.6rem; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center;}
+  .lightbox-nav:hover{background:rgba(255,255,255,.22);}
+  .lightbox-prev{left:20px;}
+  .lightbox-next{right:20px;}
+  @media (max-width:600px){
+    .lightbox-nav{width:40px; height:40px; font-size:1.3rem;}
+    .lightbox-prev{left:8px;} .lightbox-next{right:8px;}
+    .lightbox-close{top:12px; right:12px; width:38px; height:38px;}
+  }
 
   /* ---------- FEEDBACKS ---------- */
   .feedback-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:10px;}
@@ -360,7 +378,7 @@
   .footer-brand{display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:14px;}
   .footer-brand img{height:132px; width:auto; display:block; margin:0 auto;}
   footer.site h5{color:#fff; font-size:.85rem; text-transform:uppercase; letter-spacing:.08em; margin-bottom:16px;}
-  footer.site p{color:#cfc4bd; font-size:.88rem; max-width:34ch;}
+  footer.site p{color:#cfc4bd; font-size:.88rem; max-width:34ch; text-align:center; margin-left:auto; margin-right:auto;}
   .footer-links{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px;}
   .footer-links a{color:#e9e2dc; text-decoration:none; font-size:.9rem;}
   .footer-links a:hover{color:var(--terracotta);}
@@ -746,13 +764,13 @@
         <p>Um pouco do que é acompanhar famílias de perto — em casa, em consulta e nas formações.</p>
       </div>
       <div class="gallery-grid">
-        <a href="assets/serv_curso.jpg" target="_blank" rel="noopener" class="tall"><img src="assets/serv_curso.jpg" alt="Curso Cuidados ao Bebé"></a>
-        <a href="assets/serv_consulta.jpg" target="_blank" rel="noopener"><img src="assets/serv_consulta.jpg" alt="Consulta de Enfermagem"></a>
-        <a href="assets/curso_detail2.jpg" target="_blank" rel="noopener"><img src="assets/curso_detail2.jpg" alt="Curso Cuidados ao Bebé — treino prático"></a>
-        <a href="assets/serv_workshop.jpg" target="_blank" rel="noopener" class="tall"><img src="assets/serv_workshop.jpg" alt="Workshop Introdução Alimentar"></a>
-        <a href="assets/consulta_detail2.jpg" target="_blank" rel="noopener"><img src="assets/consulta_detail2.jpg" alt="Consulta de Enfermagem ao domicílio"></a>
-        <a href="assets/walim_detail2.jpg" target="_blank" rel="noopener"><img src="assets/walim_detail2.jpg" alt="Workshop Introdução Alimentar — detalhe"></a>
-        <a href="assets/hero_small_filipa.jpg" target="_blank" rel="noopener"><img src="assets/hero_small_filipa.jpg" alt="Enf.ª Filipa Santos"></a>
+        <button type="button" class="gallery-item tall" data-gallery-index="0"><img src="assets/serv_curso.jpg" alt="Curso Cuidados ao Bebé"></button>
+        <button type="button" class="gallery-item" data-gallery-index="1"><img src="assets/serv_consulta.jpg" alt="Consulta de Enfermagem"></button>
+        <button type="button" class="gallery-item" data-gallery-index="2"><img src="assets/curso_detail2.jpg" alt="Curso Cuidados ao Bebé — treino prático"></button>
+        <button type="button" class="gallery-item tall" data-gallery-index="3"><img src="assets/serv_workshop.jpg" alt="Workshop Introdução Alimentar"></button>
+        <button type="button" class="gallery-item" data-gallery-index="4"><img src="assets/consulta_detail2.jpg" alt="Consulta de Enfermagem ao domicílio"></button>
+        <button type="button" class="gallery-item" data-gallery-index="5"><img src="assets/walim_detail2.jpg" alt="Workshop Introdução Alimentar — detalhe"></button>
+        <button type="button" class="gallery-item" data-gallery-index="6"><img src="assets/hero_small_filipa.jpg" alt="Enf.ª Filipa Santos"></button>
       </div>
       <p class="gallery-note">Mais fotografias em breve — sigam-nos no <a href="https://www.instagram.com/growupbaby_" target="_blank" rel="noopener" style="color:var(--terracotta); font-weight:700;">Instagram @growupbaby_</a>.</p>
     </div>
@@ -868,6 +886,16 @@
 
 </main>
 
+<div class="lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Galeria de fotografias">
+  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Fechar">&times;</button>
+  <button type="button" class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Foto anterior">&#8249;</button>
+  <figure class="lightbox-figure">
+    <img id="lightboxImg" src="" alt="">
+    <figcaption class="lightbox-caption" id="lightboxCaption"></figcaption>
+  </figure>
+  <button type="button" class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Foto seguinte">&#8250;</button>
+</div>
+
 <footer class="site">
   <div class="wrap">
     <div class="footer-grid">
@@ -920,6 +948,49 @@
   closeBtn.addEventListener('click', closePanel);
   overlay.addEventListener('click', closePanel);
   panel.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closePanel); });
+
+  // ---------- GALERIA LIGHTBOX ----------
+  var galleryItems = Array.prototype.map.call(document.querySelectorAll('.gallery-grid .gallery-item'), function(btn){
+    var img = btn.querySelector('img');
+    return { src: img.getAttribute('src'), alt: img.getAttribute('alt') };
+  });
+  var lightbox = document.getElementById('galleryLightbox');
+  var lightboxImg = document.getElementById('lightboxImg');
+  var lightboxCaption = document.getElementById('lightboxCaption');
+  var lightboxClose = document.getElementById('lightboxClose');
+  var lightboxPrev = document.getElementById('lightboxPrev');
+  var lightboxNext = document.getElementById('lightboxNext');
+  var currentIndex = 0;
+
+  function showImage(i){
+    currentIndex = (i + galleryItems.length) % galleryItems.length;
+    var item = galleryItems[currentIndex];
+    lightboxImg.setAttribute('src', item.src);
+    lightboxImg.setAttribute('alt', item.alt);
+    lightboxCaption.textContent = item.alt;
+  }
+  function openLightbox(i){
+    showImage(i);
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.gallery-grid .gallery-item').forEach(function(btn, i){
+    btn.addEventListener('click', function(){ openLightbox(i); });
+  });
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxPrev.addEventListener('click', function(){ showImage(currentIndex - 1); });
+  lightboxNext.addEventListener('click', function(){ showImage(currentIndex + 1); });
+  lightbox.addEventListener('click', function(e){ if(e.target === lightbox){ closeLightbox(); } });
+  document.addEventListener('keydown', function(e){
+    if(!lightbox.classList.contains('open')) return;
+    if(e.key === 'Escape') closeLightbox();
+    if(e.key === 'ArrowLeft') showImage(currentIndex - 1);
+    if(e.key === 'ArrowRight') showImage(currentIndex + 1);
+  });
 </script>
 
 </body>
