@@ -274,6 +274,39 @@
   .field-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
   .agenda-form .btn-dark{width:100%; justify-content:center; margin-top:6px;}
   .form-note{font-size:.78rem; color:var(--taupe); margin-top:12px; text-align:center;}
+  .consent-check{display:flex; align-items:flex-start; gap:9px; margin:4px 0 18px; cursor:pointer;}
+  .consent-check input{width:16px; height:16px; margin-top:3px; accent-color:var(--sage-dark); flex:0 0 auto;}
+  .consent-check span{font-size:.8rem; color:var(--taupe); line-height:1.4;}
+  .consent-check a{color:var(--terracotta); font-weight:600;}
+
+  /* ---------- PARCEIROS ---------- */
+  .partners-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:10px;}
+  .partner-card{
+    background:var(--card); border-radius:18px; padding:26px 20px; text-align:center;
+    box-shadow:var(--shadow); display:flex; flex-direction:column; align-items:center; gap:10px;
+  }
+  .partner-card .partner-mark{
+    width:64px; height:64px; border-radius:50%; background:var(--sage-pale); color:var(--sage-dark);
+    display:flex; align-items:center; justify-content:center; font-family:"Fraunces"; font-weight:600; font-size:1.4rem;
+  }
+  .partner-card h4{font-size:1rem; margin:0;}
+  .partner-card p{font-size:.82rem; color:var(--taupe); margin:0;}
+  .partner-cta{
+    margin-top:36px; background:var(--cream-2); border-radius:20px; padding:32px 36px;
+    display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+  }
+  .partner-cta h3{font-size:1.25rem; margin-bottom:6px;}
+  .partner-cta p{color:var(--taupe); font-size:.92rem; margin:0; max-width:48ch;}
+
+  /* ---------- GALERIA ---------- */
+  .gallery-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:170px; gap:14px; margin-top:10px;
+  }
+  .gallery-grid a{border-radius:16px; overflow:hidden; display:block; position:relative;}
+  .gallery-grid img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease;}
+  .gallery-grid a:hover img{transform:scale(1.07);}
+  .gallery-grid .tall{grid-row:span 2;}
+  .gallery-note{margin-top:18px; font-size:.85rem; color:var(--taupe); text-align:center;}
 
   /* ---------- FEEDBACKS ---------- */
   .feedback-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:10px;}
@@ -357,6 +390,9 @@
     .field-row{grid-template-columns:1fr;}
     .footer-grid{grid-template-columns:1fr; gap:28px;}
     .agenda-copy, .agenda-form{padding:34px 26px;}
+    .partners-grid{grid-template-columns:repeat(2,1fr);}
+    .partner-cta{flex-direction:column; align-items:flex-start; text-align:left;}
+    .gallery-grid{grid-template-columns:repeat(3,1fr); grid-auto-rows:130px;}
   }
   @media (max-width:600px){
     section{padding-block:60px;}
@@ -365,6 +401,8 @@
     .quem-photos{grid-template-columns:1fr;}
     .quem-photos img{aspect-ratio:16/10;}
     .quem-photos .p2{margin-top:0;}
+    .partners-grid{grid-template-columns:repeat(2,1fr);}
+    .gallery-grid{grid-template-columns:repeat(2,1fr); grid-auto-rows:150px;}
   }
 
   /* mobile nav panel */
@@ -392,7 +430,9 @@
       <li><a href="#quem-somos">Quem somos</a></li>
       <li><a href="#missao">Missão</a></li>
       <li><a href="#percurso">Percurso</a></li>
+      <li><a href="#parceiros">Parceiros</a></li>
       <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#galeria">Galeria</a></li>
       <li><a href="#feedbacks">Feedbacks</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
@@ -411,7 +451,9 @@
   <a href="#quem-somos">Quem somos</a>
   <a href="#missao">Missão</a>
   <a href="#percurso">Percurso</a>
+  <a href="#parceiros">Parceiros</a>
   <a href="#servicos">Serviços</a>
+  <a href="#galeria">Galeria</a>
   <a href="#feedbacks">Feedbacks</a>
   <a href="#contacto">Contacto</a>
 </nav>
@@ -544,6 +586,46 @@
     </div>
   </section>
 
+  <!-- PARCEIROS -->
+  <section id="parceiros" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Marcas &amp; parceiros</div>
+        <h2>Com quem já caminhámos.</h2>
+        <p>Marcas e instituições que se juntaram a nós em workshops, conteúdos e iniciativas de saúde infantil ao longo destes anos.</p>
+      </div>
+      <div class="partners-grid">
+        <div class="partner-card">
+          <div class="partner-mark">C</div>
+          <h4>Continente</h4>
+          <p>Workshops &amp; newsletter</p>
+        </div>
+        <div class="partner-card">
+          <div class="partner-mark">PA</div>
+          <h4>Philips Avent</h4>
+          <p>Workshops de parentalidade</p>
+        </div>
+        <div class="partner-card">
+          <div class="partner-mark">RTP</div>
+          <h4>RTP — A Nossa Tarde</h4>
+          <p>Participação em programa</p>
+        </div>
+        <div class="partner-card">
+          <div class="partner-mark">TSF</div>
+          <h4>A Vida Passa a Comer</h4>
+          <p>Podcast, TSF</p>
+        </div>
+      </div>
+      <div class="partner-cta">
+        <div>
+          <h3>É uma marca e quer colaborar com a Grow Up Baby?</h3>
+          <p>Escrevam-nos a contar a ideia — workshops, conteúdos ou outras iniciativas para famílias.</p>
+        </div>
+        <a class="btn btn-primary" href="mailto:parcerias@growupbaby.pt?subject=Proposta%20de%20parceria">Falar sobre uma parceria</a>
+      </div>
+    </div>
+  </section>
+
   <!-- SERVICOS -->
   <section id="servicos" class="alt">
     <div class="wrap">
@@ -643,11 +725,36 @@
               <label for="bk-msg">Mensagem</label>
               <textarea id="bk-msg" name="Mensagem" rows="3" placeholder="Contem-nos um pouco sobre o que precisam..."></textarea>
             </div>
+            <label class="consent-check">
+              <input type="checkbox" name="Consentimento" value="Sim" required>
+              <span>Autorizo o tratamento dos meus dados para responderem ao meu pedido, nos termos da <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.</span>
+            </label>
             <button type="submit" class="btn btn-dark">Enviar pedido de marcação</button>
             <p class="form-note">Ao enviar, abre-se o vosso programa de email com o pedido já preenchido.</p>
           </form>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section id="galeria">
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="eyebrow">Galeria</div>
+        <h2>Momentos das nossas consultas, cursos e workshops.</h2>
+        <p>Um pouco do que é acompanhar famílias de perto — em casa, em consulta e nas formações.</p>
+      </div>
+      <div class="gallery-grid">
+        <a href="assets/serv_curso.jpg" target="_blank" rel="noopener" class="tall"><img src="assets/serv_curso.jpg" alt="Curso Cuidados ao Bebé"></a>
+        <a href="assets/serv_consulta.jpg" target="_blank" rel="noopener"><img src="assets/serv_consulta.jpg" alt="Consulta de Enfermagem"></a>
+        <a href="assets/curso_detail2.jpg" target="_blank" rel="noopener"><img src="assets/curso_detail2.jpg" alt="Curso Cuidados ao Bebé — treino prático"></a>
+        <a href="assets/serv_workshop.jpg" target="_blank" rel="noopener" class="tall"><img src="assets/serv_workshop.jpg" alt="Workshop Introdução Alimentar"></a>
+        <a href="assets/consulta_detail2.jpg" target="_blank" rel="noopener"><img src="assets/consulta_detail2.jpg" alt="Consulta de Enfermagem ao domicílio"></a>
+        <a href="assets/walim_detail2.jpg" target="_blank" rel="noopener"><img src="assets/walim_detail2.jpg" alt="Workshop Introdução Alimentar — detalhe"></a>
+        <a href="assets/hero_small_filipa.jpg" target="_blank" rel="noopener"><img src="assets/hero_small_filipa.jpg" alt="Enf.ª Filipa Santos"></a>
+      </div>
+      <p class="gallery-note">Mais fotografias em breve — sigam-nos no <a href="https://www.instagram.com/growupbaby_" target="_blank" rel="noopener" style="color:var(--terracotta); font-weight:700;">Instagram @growupbaby_</a>.</p>
     </div>
   </section>
 
@@ -739,6 +846,10 @@
             <label for="c-msg">Mensagem</label>
             <textarea id="c-msg" name="Mensagem" rows="3" placeholder="Como podemos ajudar?" required></textarea>
           </div>
+          <label class="consent-check">
+            <input type="checkbox" name="Consentimento" value="Sim" required>
+            <span>Autorizo o tratamento dos meus dados para responderem ao meu pedido, nos termos da <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.</span>
+          </label>
           <button type="submit" class="btn btn-primary">Enviar mensagem</button>
         </form>
         <div class="contact-links">
@@ -772,7 +883,9 @@
           <li><a href="#quem-somos">Quem somos</a></li>
           <li><a href="#missao">Missão</a></li>
           <li><a href="#percurso">Percurso</a></li>
+          <li><a href="#parceiros">Parceiros</a></li>
           <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#galeria">Galeria</a></li>
           <li><a href="#feedbacks">Feedbacks</a></li>
         </ul>
       </div>
@@ -787,7 +900,10 @@
     </div>
     <div class="footer-bottom">
       <span>© <span id="year"></span> Grow Up Baby. Todos os direitos reservados.</span>
-      <span>Enf.ª Filipa Santos &amp; Enf.ª Telma Maravilha</span>
+      <span style="display:flex; gap:18px; align-items:center;">
+        <a href="privacidade.html" style="color:inherit;">Política de Privacidade</a>
+        <span>Enf.ª Filipa Santos &amp; Enf.ª Telma Maravilha</span>
+      </span>
     </div>
   </div>
 </footer>
