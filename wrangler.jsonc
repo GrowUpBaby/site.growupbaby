@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "site-growupbaby",
+  "compatibility_date": "2026-09-19",
+  "main": "src/index.js",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "growupbaby",
+      // Placeholder — substituir pelo id real depois de correr:
+      //   npx wrangler d1 create growupbaby
+      "database_id": "PENDENTE_CRIAR_COM_WRANGLER_D1_CREATE"
+    }
+  ]
+}

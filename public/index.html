@@ -252,6 +252,31 @@
     text-decoration:none; border-bottom:2px solid var(--terracotta); padding-bottom:2px;
   }
 
+
+  /* Próximas formações (agenda dinâmica, Fase 2) */
+  .formacoes-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:26px; margin-top:10px;}
+  .formacoes-status{color:var(--taupe); font-size:.95rem;}
+  .formacao-card{
+    background:var(--card); border-radius:20px; padding:26px 24px; box-shadow:var(--shadow);
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .formacao-card h3{font-size:1.2rem; margin-bottom:0;}
+  .formacao-meta{display:flex; flex-wrap:wrap; gap:10px; font-size:.82rem; color:var(--sage-dark); font-weight:700; text-transform:uppercase; letter-spacing:.04em;}
+  .formacao-card p.formacao-desc{color:var(--taupe); font-size:.92rem; margin:0;}
+  .formacao-vagas{font-size:.85rem; font-weight:700; color:var(--terracotta);}
+  .formacao-vagas.esgotado{color:var(--taupe);}
+  .formacao-toggle{
+    margin-top:6px; align-self:flex-start; font-size:.85rem; font-weight:700; color:var(--terracotta);
+    background:none; border:none; padding:0; cursor:pointer; border-bottom:2px solid var(--terracotta);
+    font-family:"Libre Franklin", sans-serif;
+  }
+  .formacao-form{display:none; margin-top:14px; padding-top:14px; border-top:1px solid var(--line); flex-direction:column; gap:10px;}
+  .formacao-form.open{display:flex;}
+  .formacao-form .field{margin-bottom:0;}
+  .formacao-form-msg{font-size:.85rem; font-weight:600; margin:0;}
+  .formacao-form-msg.ok{color:var(--sage-dark);}
+  .formacao-form-msg.erro{color:var(--terracotta);}
+
   /* Agenda / booking box */
   .agenda{
     margin-top:64px; display:grid; grid-template-columns:1fr 1fr; gap:0;
@@ -403,6 +428,7 @@
     .founder-card img{aspect-ratio:1/1; height:auto; object-position:center 18%;}
     .pillars{grid-template-columns:1fr 1fr;}
     .services-grid{grid-template-columns:1fr;}
+    .formacoes-grid{grid-template-columns:1fr;}
     .percurso-gallery{grid-template-columns:repeat(2,1fr);}
     .feedback-grid{grid-template-columns:1fr;}
     .field-row{grid-template-columns:1fr;}
@@ -755,6 +781,21 @@
     </div>
   </section>
 
+  <!-- PRÓXIMAS FORMAÇÕES (agenda dinâmica, Fase 2) -->
+  <section id="proximas-formacoes">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Agenda</div>
+        <h2>Próximas formações</h2>
+        <p>Vagas limitadas — inscrevam-se diretamente aqui para garantir o vosso lugar.</p>
+      </div>
+
+      <div id="formacoesGrid" class="formacoes-grid">
+        <p class="formacoes-status">A carregar as próximas formações…</p>
+      </div>
+    </div>
+  </section>
+
   <!-- GALERIA -->
   <section id="galeria">
     <div class="wrap">
@@ -992,6 +1033,131 @@
     if(e.key === 'ArrowLeft') showImage(currentIndex - 1);
     if(e.key === 'ArrowRight') showImage(currentIndex + 1);
   });
+
+  // ---------- PRÓXIMAS FORMAÇÕES (agenda dinâmica) ----------
+  (function () {
+    var grid = document.getElementById('formacoesGrid');
+    if (!grid) return;
+
+    function euros(v) {
+      return v.toLocaleString('pt-PT', { style: 'currency', currency: 'EUR' });
+    }
+    function dataFormatada(iso) {
+      try {
+        return new Date(iso).toLocaleString('pt-PT', { dateStyle: 'long', timeStyle: 'short' });
+      } catch (e) {
+        return iso;
+      }
+    }
+
+    function renderCurso(curso) {
+      var esgotado = curso.plazas_disponiveis <= 0;
+      var card = document.createElement('div');
+      card.className = 'formacao-card';
+      card.innerHTML =
+        '<h3></h3>' +
+        '<div class="formacao-meta"><span class="fm-data"></span><span class="fm-preco"></span></div>' +
+        '<p class="formacao-desc"></p>' +
+        '<span class="formacao-vagas' + (esgotado ? ' esgotado' : '') + '"></span>';
+      card.querySelector('h3').textContent = curso.titulo;
+      card.querySelector('.fm-data').textContent = dataFormatada(curso.data_hora);
+      card.querySelector('.fm-preco').textContent = euros(curso.preco_eur);
+      card.querySelector('.formacao-desc').textContent = curso.descricao || '';
+      card.querySelector('.formacao-vagas').textContent = esgotado
+        ? 'Sem vagas de momento'
+        : curso.plazas_disponiveis + ' vaga(s) disponível(eis)';
+
+      if (!esgotado) {
+        var toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'formacao-toggle';
+        toggle.textContent = 'Inscrever-me →';
+
+        var form = document.createElement('form');
+        form.className = 'formacao-form';
+        form.innerHTML =
+          '<div class="field"><label>Nome</label><input type="text" name="nome" required></div>' +
+          '<div class="field"><label>Email</label><input type="email" name="email" required></div>' +
+          '<div class="field"><label>Telefone</label><input type="tel" name="telefone"></div>' +
+          '<label class="consent-check"><input type="checkbox" name="consentimento" required>' +
+          '<span>Autorizo o tratamento dos meus dados nos termos da <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.</span></label>' +
+          '<button type="submit" class="btn btn-dark">Confirmar inscrição</button>' +
+          '<p class="formacao-form-msg" aria-live="polite"></p>';
+
+        toggle.addEventListener('click', function () {
+          form.classList.toggle('open');
+        });
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var msg = form.querySelector('.formacao-form-msg');
+          var submitBtn = form.querySelector('button[type="submit"]');
+          var fd = new FormData(form);
+          submitBtn.disabled = true;
+          msg.textContent = 'A enviar…';
+          msg.className = 'formacao-form-msg';
+
+          fetch('/api/inscricoes', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              curso_id: curso.id,
+              nome: fd.get('nome'),
+              email: fd.get('email'),
+              telefone: fd.get('telefone'),
+              consentimento: !!fd.get('consentimento'),
+            }),
+          })
+            .then(function (r) {
+              return r.json().then(function (data) { return { ok: r.ok, data: data }; });
+            })
+            .then(function (res) {
+              if (res.ok) {
+                msg.textContent = 'Inscrição confirmada! Enviámos um email de confirmação.';
+                msg.className = 'formacao-form-msg ok';
+                form.reset();
+                submitBtn.textContent = 'Inscrição confirmada ✓';
+              } else {
+                msg.textContent = (res.data && res.data.error) || 'Não foi possível concluir a inscrição.';
+                msg.className = 'formacao-form-msg erro';
+                submitBtn.disabled = false;
+              }
+            })
+            .catch(function () {
+              msg.textContent = 'Erro de ligação. Tentem novamente ou escrevam para geral@growupbaby.pt.';
+              msg.className = 'formacao-form-msg erro';
+              submitBtn.disabled = false;
+            });
+        });
+
+        card.appendChild(toggle);
+        card.appendChild(form);
+      }
+
+      return card;
+    }
+
+    fetch('/api/cursos')
+      .then(function (r) {
+        if (!r.ok) throw new Error('resposta não ok');
+        return r.json();
+      })
+      .then(function (data) {
+        var cursos = data.cursos || [];
+        grid.innerHTML = '';
+        if (cursos.length === 0) {
+          grid.innerHTML = '<p class="formacoes-status">Sem formações agendadas de momento — sigam-nos no Instagram para serem os primeiros a saber.</p>';
+          return;
+        }
+        cursos.forEach(function (c) { grid.appendChild(renderCurso(c)); });
+      })
+      .catch(function () {
+        // A agenda dinâmica ainda não está disponível em produção (Fase 2 em curso) —
+        // esconde a secção em silêncio para não mostrar um erro aos visitantes.
+        var section = document.getElementById('proximas-formacoes');
+        if (section) section.style.display = 'none';
+      });
+  })();
 </script>
 
 </body>

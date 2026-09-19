@@ -1,0 +1,15 @@
+{
+  "name": "site-growupbaby",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:create": "wrangler d1 create growupbaby",
+    "db:migrate:local": "wrangler d1 migrations apply growupbaby --local",
+    "db:migrate:remote": "wrangler d1 migrations apply growupbaby --remote"
+  },
+  "devDependencies": {
+    "wrangler": "^4.135.0"
+  }
+}
