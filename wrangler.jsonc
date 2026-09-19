@@ -6,14 +6,14 @@
   "assets": {
     "directory": "./public",
     "binding": "ASSETS"
-  },
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "growupbaby",
-      // Placeholder — substituir pelo id real depois de correr:
-      //   npx wrangler d1 create growupbaby
-      "database_id": "PENDENTE_CRIAR_COM_WRANGLER_D1_CREATE"
-    }
-  ]
+  }
+
+  // O binding da D1 fica desativado até existir uma base de dados real —
+  // um database_id inválido faz falhar o deploy automático do Cloudflare.
+  // Depois de correr `npx wrangler login` e `npm run db:create`, voltar a
+  // adicionar aqui (substituindo pelo database_id devolvido):
+  //
+  // "d1_databases": [
+  //   { "binding": "DB", "database_name": "growupbaby", "database_id": "<id real>" }
+  // ]
 }
